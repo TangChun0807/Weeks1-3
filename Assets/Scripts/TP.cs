@@ -20,7 +20,7 @@ public class TP : MonoBehaviour
             transform.position = new Vector3(Random.value, Random.value);
             progress = 0f;
 
-            
+            //hello world
         }
     }
 }
