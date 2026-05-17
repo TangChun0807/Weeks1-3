@@ -3,8 +3,8 @@ using UnityEngine;
 public class Pulser : MonoBehaviour
 {
     public AnimationCurve curve;
-    public float startSize;
-    public float endSize;
+   // public float startSize;
+   // public float endSize;
 
     private float progress;
     public float duration = 0;
