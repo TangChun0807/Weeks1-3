@@ -225,13 +225,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ex3Timer
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3002816
+      value: 1.0062305
+      inSlope: 0.78654313
+      outSlope: 0.78654313
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5925864
+      value: 0.005333066
+      inSlope: -0.75353307
+      outSlope: -0.75353307
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6530648
+      value: -1.0056822
+      inSlope: -0.097945854
+      outSlope: -0.097945854
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.96636343
+      value: 0.00052565336
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startSize: 0
-  endSize: 0
-  speed: 0
+  speed: 0.1
   timer: 0
 --- !u!1 &577014316
 GameObject:
