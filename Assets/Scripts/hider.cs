@@ -30,7 +30,7 @@ public class hider : MonoBehaviour
 
             transform.position = hidePosition;
             
-            //hello world
+            
         }
     }
 }
