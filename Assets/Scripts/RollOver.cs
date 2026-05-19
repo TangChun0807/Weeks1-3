@@ -20,7 +20,7 @@ public class RollOver : MonoBehaviour
     {
         Vector3 currentMousePosition = Mouse.current.position.ReadValue();
         Vector3 worldMousePosition = gameCamera.ScreenToWorldPoint(currentMousePosition);
-        worldMousePosition.z = 0f;
+        worldMousePosition.z = transform.position.z;
         
         
         if(Vector3.Distance(worldMousePosition, transform.position) < distance)

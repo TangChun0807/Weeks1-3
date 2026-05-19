@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bouncing
   xSpeed: 3
-  ySpeed: 1
+  ySpeed: 3
   yMin: -4
   yMax: 4
   xMin: -4
