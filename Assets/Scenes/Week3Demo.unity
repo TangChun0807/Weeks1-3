@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controller
   moveSpeed: 5
-  rotationSpeed: 0
+  rotationSpeed: 5
 --- !u!212 &1117544574
 SpriteRenderer:
   serializedVersion: 2
