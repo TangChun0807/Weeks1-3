@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class UFO : MonoBehaviour
 {
     public Camera gameCamera;
-    public float t1;
     public float t2;
     public float t3;
     public float t4;
@@ -32,7 +31,7 @@ public class UFO : MonoBehaviour
         {
             if (worldMousePosition.x > -10 && worldMousePosition.x < -6)
             {
-                t1 += Time.deltaTime / totalAnimationTime;
+                Square.t += Time.deltaTime / totalAnimationTime;
                 t2 -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
@@ -43,7 +42,7 @@ public class UFO : MonoBehaviour
             }
             else if (worldMousePosition.x > -6 && worldMousePosition.x < -2)
             {
-                t1 -= Time.deltaTime / totalAnimationTime;
+                Square.t -= Time.deltaTime / totalAnimationTime;
                 t2 += Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
@@ -52,7 +51,7 @@ public class UFO : MonoBehaviour
             }
             else if (worldMousePosition.x > -2 && worldMousePosition.x < 2)
             {
-                t1 -= Time.deltaTime / totalAnimationTime;
+                Square.t -= Time.deltaTime / totalAnimationTime;
                 t2 -= Time.deltaTime / totalAnimationTime;
                 t3 += Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
@@ -60,7 +59,7 @@ public class UFO : MonoBehaviour
             }
             else if (worldMousePosition.x > 2 && worldMousePosition.x < 6)
             {
-                t1 -= Time.deltaTime / totalAnimationTime;
+                Square.t -= Time.deltaTime / totalAnimationTime;
                 t2 -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 += Time.deltaTime / totalAnimationTime;
@@ -68,7 +67,7 @@ public class UFO : MonoBehaviour
             }
             else if (worldMousePosition.x > 6 && worldMousePosition.x < 10)
             {
-                t1 -= Time.deltaTime / totalAnimationTime;
+                Square.t -= Time.deltaTime / totalAnimationTime;
                 t2 -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
@@ -76,7 +75,7 @@ public class UFO : MonoBehaviour
             }
             else
             {
-                t1 -= Time.deltaTime / totalAnimationTime;
+                Square.t -= Time.deltaTime / totalAnimationTime;
                 t2 -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
@@ -86,14 +85,59 @@ public class UFO : MonoBehaviour
         }
         else
         {
-            t1 -= Time.deltaTime / totalAnimationTime;
+            Square.t -= Time.deltaTime / totalAnimationTime;
             t2 -= Time.deltaTime / totalAnimationTime;
             t3 -= Time.deltaTime / totalAnimationTime;
             t4 -= Time.deltaTime / totalAnimationTime;
             t5 -= Time.deltaTime / totalAnimationTime;
         }
 
+        if (Square.t < 0)
+        {
+            Square.t = 0;
+        }else if (Square.t > 1)
+        {
+            Square.t = 1;
+        }
 
+        if (t2 < 0)
+        {
+            t2 = 0;
+        }
+        else if (t2 > 1)
+        {
+            t2 = 1;
+        }
+
+
+        if (t3 < 0)
+        {
+            t3 = 0;
+        }
+        else if (t3 > 1)
+        {
+            t3 = 1;
+        }
+
+
+        if (t4 < 0)
+        {
+            t4 = 0;
+        }
+        else if (t4 > 1)
+        {
+            t4 = 1;
+        }
+
+
+        if (t5 < 0)
+        {
+            t5 = 0;
+        }
+        else if (t5 > 1)
+        {
+            t5 = 1;
+        }
 
     }
 }
