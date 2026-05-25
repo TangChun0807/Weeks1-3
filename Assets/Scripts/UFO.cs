@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class UFO : MonoBehaviour
 {
     public Camera gameCamera;
-    public float t2;
+   
     public float t3;
     public float t4;
     public float t5;
@@ -32,7 +32,7 @@ public class UFO : MonoBehaviour
             if (worldMousePosition.x > -10 && worldMousePosition.x < -6)
             {
                 Square.t += Time.deltaTime / totalAnimationTime;
-                t2 -= Time.deltaTime / totalAnimationTime;
+                Triangle.t -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
                 t5 -= Time.deltaTime / totalAnimationTime;
@@ -43,7 +43,7 @@ public class UFO : MonoBehaviour
             else if (worldMousePosition.x > -6 && worldMousePosition.x < -2)
             {
                 Square.t -= Time.deltaTime / totalAnimationTime;
-                t2 += Time.deltaTime / totalAnimationTime;
+                Triangle.t += Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
                 t5 -= Time.deltaTime / totalAnimationTime;
@@ -52,7 +52,7 @@ public class UFO : MonoBehaviour
             else if (worldMousePosition.x > -2 && worldMousePosition.x < 2)
             {
                 Square.t -= Time.deltaTime / totalAnimationTime;
-                t2 -= Time.deltaTime / totalAnimationTime;
+                Triangle.t -= Time.deltaTime / totalAnimationTime;
                 t3 += Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
                 t5 -= Time.deltaTime / totalAnimationTime;
@@ -60,7 +60,7 @@ public class UFO : MonoBehaviour
             else if (worldMousePosition.x > 2 && worldMousePosition.x < 6)
             {
                 Square.t -= Time.deltaTime / totalAnimationTime;
-                t2 -= Time.deltaTime / totalAnimationTime;
+                Triangle.t -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 += Time.deltaTime / totalAnimationTime;
                 t5 -= Time.deltaTime / totalAnimationTime;
@@ -68,7 +68,7 @@ public class UFO : MonoBehaviour
             else if (worldMousePosition.x > 6 && worldMousePosition.x < 10)
             {
                 Square.t -= Time.deltaTime / totalAnimationTime;
-                t2 -= Time.deltaTime / totalAnimationTime;
+                Triangle.t -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
                 t5 += Time.deltaTime / totalAnimationTime;
@@ -76,7 +76,7 @@ public class UFO : MonoBehaviour
             else
             {
                 Square.t -= Time.deltaTime / totalAnimationTime;
-                t2 -= Time.deltaTime / totalAnimationTime;
+                Triangle.t -= Time.deltaTime / totalAnimationTime;
                 t3 -= Time.deltaTime / totalAnimationTime;
                 t4 -= Time.deltaTime / totalAnimationTime;
                 t5 -= Time.deltaTime / totalAnimationTime;
@@ -86,7 +86,7 @@ public class UFO : MonoBehaviour
         else
         {
             Square.t -= Time.deltaTime / totalAnimationTime;
-            t2 -= Time.deltaTime / totalAnimationTime;
+            Triangle.t -= Time.deltaTime / totalAnimationTime;
             t3 -= Time.deltaTime / totalAnimationTime;
             t4 -= Time.deltaTime / totalAnimationTime;
             t5 -= Time.deltaTime / totalAnimationTime;
@@ -100,13 +100,13 @@ public class UFO : MonoBehaviour
             Square.t = 1;
         }
 
-        if (t2 < 0)
+        if (Triangle.t < 0)
         {
-            t2 = 0;
+            Triangle.t = 0;
         }
-        else if (t2 > 1)
+        else if (Triangle.t > 1)
         {
-            t2 = 1;
+            Triangle.t = 1;
         }
 
 
