@@ -1,23 +1,23 @@
-
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 
-
-public class Square : MonoBehaviour
+public class Bin : MonoBehaviour
 {
-    private Vector3 startPoint = new Vector3(-8f, -4.5f, 0f);
-    private Vector3 endPoint = new Vector3(-8f, -0.5f, 0f);
-    private float t;
-    public AnimationCurve curve;
     public Camera gameCamera;
     public float totalAnimationTime;
+    public Vector3 hidePosition;
+    public AnimationCurve curve;
+    private float progress;
+    public Vector3 ogScale;
+    public int previousLane;
+    public int currentLane;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        ogScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -26,68 +26,85 @@ public class Square : MonoBehaviour
         Vector3 currentMousePosition = Mouse.current.position.ReadValue();
         Vector3 worldMousePosition = gameCamera.ScreenToWorldPoint(currentMousePosition);
         worldMousePosition.z = 0f;
-        
-        Vector3 temp = Vector3.Lerp(startPoint, endPoint, t);
-        temp.x += curve.Evaluate(t);
-        transform.position = temp;
+        worldMousePosition.y -= 1.8f;
 
+
+        transform.position = worldMousePosition;
+
+        if (worldMousePosition.y > 0f)
+        {
+            progress += Time.deltaTime;
+            Vector3 temp = transform.localScale;
+            temp.x = curve.Evaluate(progress / totalAnimationTime) * ogScale.x;
+            transform.localScale = temp; 
+
+
+        }
+        else
+        {
+            transform.position = hidePosition; 
+        }
+
+        previousLane = currentLane;
 
 
         if (worldMousePosition.y > 0f)
         {
             if (worldMousePosition.x > -10 && worldMousePosition.x < -6)
             {
-                t += Time.deltaTime / totalAnimationTime;
 
+                currentLane = 1;
 
 
 
             }
             else if (worldMousePosition.x > -6 && worldMousePosition.x < -2)
             {
-                t -= Time.deltaTime / totalAnimationTime;
+                currentLane = 2;
+
 
             }
             else if (worldMousePosition.x > -2 && worldMousePosition.x < 2)
             {
-                t -= Time.deltaTime / totalAnimationTime;
+
+                currentLane = 3;
+
 
             }
             else if (worldMousePosition.x > 2 && worldMousePosition.x < 6)
             {
-                t -= Time.deltaTime / totalAnimationTime;
+                currentLane = 4;
+
 
             }
 
             else if (worldMousePosition.x > 6 && worldMousePosition.x < 10)
             {
-                t -= Time.deltaTime / totalAnimationTime;
+
+                currentLane = 5;
 
             }
             else
             {
-                t -= Time.deltaTime / totalAnimationTime;
+                currentLane = 0;
+
 
             }
+
+            
 
         }
         else
         {
-            t -= Time.deltaTime / totalAnimationTime;
-           
+            currentLane = 0;
         }
 
-        if (t < 0)
+        if (previousLane != currentLane)
         {
-            t = 0;
-        }
-        else if (t > 1)
-        {
-            t = 1;
+            progress = 0;
         }
 
-      
+
 
     }
 }
-

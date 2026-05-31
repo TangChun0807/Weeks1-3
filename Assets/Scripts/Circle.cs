@@ -1,13 +1,10 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 
-
-public class Square : MonoBehaviour
+public class Circle : MonoBehaviour
 {
-    private Vector3 startPoint = new Vector3(-8f, -4.5f, 0f);
-    private Vector3 endPoint = new Vector3(-8f, -0.5f, 0f);
+    private Vector3 startPoint = new Vector3(0f, -4.5f, 0f);
+    private Vector3 endPoint = new Vector3(0f, -0.5f, 0f);
     private float t;
     public AnimationCurve curve;
     public Camera gameCamera;
@@ -26,7 +23,7 @@ public class Square : MonoBehaviour
         Vector3 currentMousePosition = Mouse.current.position.ReadValue();
         Vector3 worldMousePosition = gameCamera.ScreenToWorldPoint(currentMousePosition);
         worldMousePosition.z = 0f;
-        
+
         Vector3 temp = Vector3.Lerp(startPoint, endPoint, t);
         temp.x += curve.Evaluate(t);
         transform.position = temp;
@@ -37,7 +34,7 @@ public class Square : MonoBehaviour
         {
             if (worldMousePosition.x > -10 && worldMousePosition.x < -6)
             {
-                t += Time.deltaTime / totalAnimationTime;
+                t -= Time.deltaTime / totalAnimationTime;
 
 
 
@@ -50,7 +47,7 @@ public class Square : MonoBehaviour
             }
             else if (worldMousePosition.x > -2 && worldMousePosition.x < 2)
             {
-                t -= Time.deltaTime / totalAnimationTime;
+                t += Time.deltaTime / totalAnimationTime;
 
             }
             else if (worldMousePosition.x > 2 && worldMousePosition.x < 6)
@@ -74,7 +71,7 @@ public class Square : MonoBehaviour
         else
         {
             t -= Time.deltaTime / totalAnimationTime;
-           
+
         }
 
         if (t < 0)
@@ -85,9 +82,5 @@ public class Square : MonoBehaviour
         {
             t = 1;
         }
-
-      
-
     }
 }
-
